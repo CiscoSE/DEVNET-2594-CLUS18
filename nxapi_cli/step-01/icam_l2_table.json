@@ -1,0 +1,18 @@
+{
+    "jsonrpc": "2.0",
+    "result": {
+    "body": {
+        "module": "1",
+        "instance": "0",
+        "TABLE_l2_table_resource": {
+        "ROW_l2_table_resource": {
+            "Total_Entries": "98304",
+            "Used_Entries": "16",
+            "Percent_Util": "0.01",
+            "Timestamp": "2018-05-06 18:59:42"
+        }
+        }
+    }
+    },
+    "id": 1
+}
