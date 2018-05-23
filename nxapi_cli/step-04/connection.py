@@ -100,12 +100,20 @@ class nxapi(object):
         return (self.__user, self.__password)
 
     def post(self, request=None):
-        response_raw = requests.post(
+        """ Post a payload to the switch
+
+        If there's a connection problem, return None.
+        """
+
+        try:
+            response_raw = requests.post(
                             self.__url(),
                             data=json.dumps(request.post_input()),
                             headers=request.post_header(),
                             auth=self.__credentials()
                             )
+        except requests.exceptions.ConnectionError:
+            return None
 
         # Convert response to manageable JSON
         return response_raw.json()

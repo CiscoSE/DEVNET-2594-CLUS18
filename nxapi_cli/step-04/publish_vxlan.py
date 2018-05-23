@@ -71,6 +71,10 @@ def collect_ip_routes(switch, vrf='default'):
     payload.add_command('show ip route vrf {0}'.format(vrf))
     response = switch.post(payload)
 
+    # Handle connection issue
+    if response == None:
+        return
+
     if response['result'] is 'null':
         raise Exception('VRF {0} not configured on switch'.format(vrf))
 
@@ -131,6 +135,10 @@ def collect_ip_routes(switch, vrf='default'):
                 intf_payload = switch.payload()
                 intf_payload.add_command('show ip interface {0}'.format(ifname))
                 intf_response = switch.post(intf_payload)
+
+                # Handle connection issue
+                if response == None:
+                    continue
 
                 if intf_response['result'] in [ 'null', None ]:
                     raise Exception('Interface {0} show failure'.format(ifname))
