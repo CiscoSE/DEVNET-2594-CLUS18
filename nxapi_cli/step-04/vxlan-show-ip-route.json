@@ -1,0 +1,284 @@
+{
+    "jsonrpc": "2.0",
+    "result": {
+      "body": {
+        "TABLE_vrf": {
+          "ROW_vrf": {
+            "vrf-name-out": "default",
+            "TABLE_addrf": {
+              "ROW_addrf": {
+                "addrf": "ipv4",
+                "TABLE_prefix": {
+                  "ROW_prefix": [
+                    {
+                      "ipprefix": "192.168.1.1/32",
+                      "ucast-nhops": 2,
+                      "mcast-nhops": 0,
+                      "attached": "true",
+                      "TABLE_path": {
+                        "ROW_path": [
+                          {
+                            "ipnexthop": "192.168.1.1",
+                            "ifname": "Lo0",
+                            "uptime": "PT1H5M20S",
+                            "pref": 0,
+                            "metric": 0,
+                            "clientname": "local",
+                            "ubest": "true"
+                          },
+                          {
+                            "ipnexthop": "192.168.1.1",
+                            "ifname": "Lo0",
+                            "uptime": "PT1H5M20S",
+                            "pref": 0,
+                            "metric": 0,
+                            "clientname": "direct",
+                            "ubest": "true"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.1.2/32",
+                      "ucast-nhops": 2,
+                      "mcast-nhops": 0,
+                      "attached": "false",
+                      "TABLE_path": {
+                        "ROW_path": [
+                          {
+                            "ipnexthop": "192.168.11.2",
+                            "ifname": "Eth1/1",
+                            "uptime": "PT43M14S",
+                            "pref": 110,
+                            "metric": 9,
+                            "clientname": "ospf-Underlay",
+                            "type": "intra",
+                            "ubest": "true"
+                          },
+                          {
+                            "ipnexthop": "192.168.12.2",
+                            "ifname": "Eth1/2",
+                            "uptime": "PT43M14S",
+                            "pref": 110,
+                            "metric": 9,
+                            "clientname": "ospf-Underlay",
+                            "type": "intra",
+                            "ubest": "true"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.1.100/32",
+                      "ucast-nhops": 2,
+                      "mcast-nhops": 0,
+                      "attached": "true",
+                      "TABLE_path": {
+                        "ROW_path": [
+                          {
+                            "ipnexthop": "192.168.1.100",
+                            "ifname": "Lo1",
+                            "uptime": "PT1H5M22S",
+                            "pref": 0,
+                            "metric": 0,
+                            "clientname": "local",
+                            "ubest": "true"
+                          },
+                          {
+                            "ipnexthop": "192.168.1.100",
+                            "ifname": "Lo1",
+                            "uptime": "PT1H5M22S",
+                            "pref": 0,
+                            "metric": 0,
+                            "clientname": "direct",
+                            "ubest": "true"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.2.1/32",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "false",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.11.2",
+                          "ifname": "Eth1/1",
+                          "uptime": "PT43M19S",
+                          "pref": 110,
+                          "metric": 5,
+                          "clientname": "ospf-Underlay",
+                          "type": "intra",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.2.2/32",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "false",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.12.2",
+                          "ifname": "Eth1/2",
+                          "uptime": "PT43M15S",
+                          "pref": 110,
+                          "metric": 5,
+                          "clientname": "ospf-Underlay",
+                          "type": "intra",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.2.101/32",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "false",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.11.2",
+                          "ifname": "Eth1/1",
+                          "uptime": "PT43M19S",
+                          "pref": 110,
+                          "metric": 5,
+                          "clientname": "ospf-Underlay",
+                          "type": "intra",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.2.102/32",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "false",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.12.2",
+                          "ifname": "Eth1/2",
+                          "uptime": "PT43M15S",
+                          "pref": 110,
+                          "metric": 5,
+                          "clientname": "ospf-Underlay",
+                          "type": "intra",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.11.0/30",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "true",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.11.1",
+                          "ifname": "Eth1/1",
+                          "uptime": "PT43M37S",
+                          "pref": 0,
+                          "metric": 0,
+                          "clientname": "direct",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.11.1/32",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "true",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.11.1",
+                          "ifname": "Eth1/1",
+                          "uptime": "PT43M37S",
+                          "pref": 0,
+                          "metric": 0,
+                          "clientname": "local",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.12.0/30",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "true",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.12.1",
+                          "ifname": "Eth1/2",
+                          "uptime": "PT43M24S",
+                          "pref": 0,
+                          "metric": 0,
+                          "clientname": "direct",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.12.1/32",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "true",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.12.1",
+                          "ifname": "Eth1/2",
+                          "uptime": "PT43M24S",
+                          "pref": 0,
+                          "metric": 0,
+                          "clientname": "local",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.21.0/30",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "false",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.11.2",
+                          "ifname": "Eth1/1",
+                          "uptime": "PT43M19S",
+                          "pref": 110,
+                          "metric": 8,
+                          "clientname": "ospf-Underlay",
+                          "type": "intra",
+                          "ubest": "true"
+                        }
+                      }
+                    },
+                    {
+                      "ipprefix": "192.168.22.0/30",
+                      "ucast-nhops": 1,
+                      "mcast-nhops": 0,
+                      "attached": "false",
+                      "TABLE_path": {
+                        "ROW_path": {
+                          "ipnexthop": "192.168.12.2",
+                          "ifname": "Eth1/2",
+                          "uptime": "PT43M15S",
+                          "pref": 110,
+                          "metric": 8,
+                          "clientname": "ospf-Underlay",
+                          "type": "intra",
+                          "ubest": "true"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "id": 1
+  }
