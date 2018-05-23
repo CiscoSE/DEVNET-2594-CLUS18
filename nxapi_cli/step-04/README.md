@@ -26,7 +26,7 @@ Create a Docker network to which the containers will connect:
     docker run --name nx-osv9000-4 -d --network demo0 -p 127.0.0.1:8894:8888 \
             -e "NXAPI_HOST=172.16.30.104" -e "NXAPI_PORT=80" \
             -e "NXAPI_USER=cisco" -e "NXAPI_PASS=cisco" \
-            devnet-2594/step-04`
+            devnet-2594/step-04
 
 Deploy Prometheus container:
 
