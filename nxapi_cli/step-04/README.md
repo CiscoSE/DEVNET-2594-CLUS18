@@ -3,6 +3,10 @@ This stage extends the script functionality to:
 - Collect metrics related to VXLAN IP routes
 - Leverage code abstractions and environment variables from step-03
 
+# VXLAN Fabric
+Leverages the "Open NX-OS with Nexus 9Kv" DEVNET Sandbox found at
+[http://devnetsandbox.cisco.com/]
+
 # Containerization Steps
 Build the Docker image for this command:
 
