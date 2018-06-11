@@ -1,0 +1,19 @@
+---
+
+nxos_provider:
+  username: "{{ user }}"
+  password: "{{ pwd }}"
+  transport: nxapi
+  timeout: 30
+  host: "{{ ansible_host }}"
+
+features:
+- { feature: bgp }
+- { feature: ospf }
+- { feature: "nv overlay" }
+- { feature: pim }
+
+address_families:
+- { afi: l2vpn, safi: evpn }
+
+

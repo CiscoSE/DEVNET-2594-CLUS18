@@ -1,0 +1,48 @@
+all:
+
+  vars:
+    ansible_python_interpreter: /usr/bin/env python
+
+  children:
+    sandbox:
+      vars:
+        ansible_connection: local
+        user: cisco
+        pwd: cisco
+
+      children:
+        spine:
+          hosts:
+            nx-osv9000-1:
+              ansible_host: 172.16.30.101
+            nx-osv9000-2:
+              ansible_host: 172.16.30.102
+        leaf:
+          hosts:
+            nx-osv9000-3:
+              ansible_host: 172.16.30.103
+            nx-osv9000-4:
+              ansible_host: 172.16.30.104
+
+    lab:
+      vars:
+        ansible_connection: local
+        user: admin
+        pwd:  C!sco@dm1n
+
+      children:
+        spine:
+          hosts:
+            spine-1:
+              ansible_host: 192.168.0.11
+            spine-2:
+              ansible_host: 192.168.0.12
+
+        leaf:
+          hosts:
+            leaf-1:
+              ansible_host: 192.168.0.21
+            leaf-2:
+              ansible_host: 192.168.0.22
+
+

@@ -1,0 +1,16 @@
+
+- name: Set switch hostname
+  nxos_config:
+    lines: hostname {{ inventory_hostname }}
+    provider: "{{ nxos_provider }}"
+
+- name: Set switch interfaces to default to L3
+  nxos_config:
+    lines: no system default switchport
+    provider: "{{ nxos_provider }}"
+
+- name: Set switch interfaces to default to shutdown
+  nxos_config:
+    lines: system default switchport shutdown
+    provider: "{{ nxos_provider }}"
+

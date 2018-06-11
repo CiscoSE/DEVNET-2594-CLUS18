@@ -1,0 +1,134 @@
+- name: CONFIGURE VLAN TO VNI MAPPING
+  nxos_vlan:
+    vlan_id: "{{ item.vlan_id }}"
+    mapped_vni: "{{ item.vni_id }}"
+    provider: "{{ nxos_provider }}"
+  with_items: 
+  - "{{ vlans_l2vni }}"
+  - "{{ vlans_l3vni }}"
+
+- name: CONFIGURE L2 INTERFACES/SWITCHPORTS
+  nxos_interface:
+    interface: "{{ item.interface }}"
+    mode: layer2
+    admin_state: up
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ l2_trunk_interfaces }}"
+
+- name: CONFIGURE L2 INTERFACES/SWITCHPORTS (TRUNKS)
+  nxos_switchport:
+    interface: "{{ item.interface }}"
+    mode: trunk
+    trunk_vlans: "{{ item.trunk_vlans }}"
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ l2_trunk_interfaces }}"
+
+# - name: CONFIGURE L2 INTERFACES/SWITCHPORTS (ACCESS)
+#   nxos_switchport:
+#     interface: "{{ item.interface }}"
+#     mode: access
+#     access_vlans: 11
+#     provider: "{{ nxos_provider }}"
+#   with_items: "{{ l2_access_interfaces }}"
+
+- name: CONFIGURE TENANT VRFs
+  nxos_vrf:
+    vrf: "{{ item.vrf }}"
+    vni: "{{ item.vni_id }}"
+    rd: auto
+    state: present
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vrfs }}"
+
+- name: CONFIGURE TENANT VRFs (cont'd)
+  nxos_vrf_af:
+    vrf: "{{ item.vrf }}"
+    afi: ipv4
+    route_target_both_auto_evpn: true
+    state: present
+    m_facts: true
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vrfs }}"
+
+- name: CONFIGURE VXLAN VTEP NVE INTERFACE L2VNI MAPPING
+  nxos_vxlan_vtep_vni:
+    interface: nve1
+    vni: "{{ item.vni_id }}"
+    #ingress_replication: bgp
+    multicast_group: "{{ item.mcast_grp }}"
+    suppress_arp: true
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vlans_l2vni }}"
+
+- name: CONFIGURE VXLAN VTEP NVE INTERFACE L3VNI MAPPING
+  nxos_vxlan_vtep_vni:
+    interface: nve1
+    vni: "{{ item.vni_id }}"
+    assoc_vrf: "true"
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vlans_l3vni }}"
+
+- name: CONFIGURE L2 EVPN VRFs
+  nxos_evpn_vni:
+    vni: "{{ item.vni_id }}"
+    route_distinguisher: auto
+    route_target_both: auto
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vlans_l2vni }}"
+
+- name: CONFIGURE TENANT VRFs UNDER BGP PROCESS
+  nxos_bgp_af:
+    asn: "{{ asn }}"
+    vrf: "{{ item.vrf }}"
+    afi: "{{ item.afi }}"
+    safi: "{{ item.safi }}"
+    advertise_l2vpn_evpn: "true"
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vrfs }}"
+
+- name: CONFIGURE ANYCAST GW MAC
+  nxos_config:
+    lines: fabric forwarding anycast-gateway-mac 1234.5678.9000
+    provider: "{{ nxos_provider  }}"
+  with_items: "{{ underlay_interfaces }}"
+
+- name: CONFIGURE SVIs THAT ARE MAPPED TO VNIs
+  nxos_interface:
+    interface: "vlan{{ item.vlan_id }}"
+    admin_state: up
+    provider: "{{ nxos_provider }}"
+  with_items: 
+  - "{{ vlans_l2vni }}"
+  - "{{ vlans_l3vni }}"
+
+- name: ASSOCIATE INTERFACES TO TENANT VRF
+  nxos_vrf_interface:
+    vrf: "{{ item.vrf }}"
+    interface: "vlan{{ item.vlan_id }}"
+    provider: "{{ nxos_provider }}"
+  with_items: 
+  - "{{ vlans_l2vni }}"
+  - "{{ vlans_l3vni }}"
+
+- name: ENABLE ANYCAST GW UNDER L2VNI SVI
+  nxos_interface:
+    interface: "vlan{{ item.vlan_id }}"
+    fabric_forwarding_anycast_gateway: true
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vlans_l2vni }}"
+
+- name: CONFIGURE IP FORWARD UNDER L3VNI SVI
+  nxos_interface:
+    interface: "vlan{{ item.vlan_id }}"
+    ip_forward: enable
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vlans_l3vni }}"
+
+- name: CONFIGURE IP ADDRESS TO L2VNI SVI
+  nxos_ip_interface:
+    interface: "vlan{{ item.vlan_id }}"
+    addr: "{{ item.addr }}"
+    mask: "{{ item.mask }}"
+    provider: "{{ nxos_provider }}"
+  with_items: "{{ vlans_l2vni }}"
+

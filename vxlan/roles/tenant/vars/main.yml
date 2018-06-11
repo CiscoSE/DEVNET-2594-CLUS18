@@ -1,0 +1,9 @@
+---
+
+nxos_provider:
+  username: "{{ user }}"
+  password: "{{ pwd }}"
+  transport: nxapi
+  timeout: 30
+  host: "{{ ansible_host }}"
+
