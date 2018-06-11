@@ -9,9 +9,9 @@ RUN     dnf install -y python-pip
 # Install required Python modules
 RUN     yes | pip install --upgrade requests prometheus_client 
 
-COPY    publish-l2table.py /opt/publish-l2table.py
+COPY    publish_l2table.py /opt/publish_l2table.py
 EXPOSE  8888
 USER    nobody
 
-CMD [ "/usr/bin/python", "/opt/publish-l2table.py" ]
+CMD [ "/usr/bin/python", "/opt/publish_l2table.py" ]
 
