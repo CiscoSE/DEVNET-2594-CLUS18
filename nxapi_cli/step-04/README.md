@@ -38,3 +38,10 @@ Deploy Prometheus container:
             -p 127.0.0.1:9090:9090 \
             -v ${PWD}/prometheus.yml:/etc/prometheus/prometheus.yml \
             quay.io/prometheus/prometheus
+
+Deply Grafana container:
+
+    docker run --name grafana -d --network demo1 \
+            -p 127.0.0.1:3000:3000 \
+            grafana/grafana
+
