@@ -41,7 +41,7 @@ Deploy Prometheus container:
 
 Deply Grafana container:
 
-    docker run --name grafana -d --network demo1 \
+    docker run --name grafana -d --network demo0 \
             -p 127.0.0.1:3000:3000 \
             grafana/grafana
 
