@@ -7,6 +7,9 @@ This stage extends the script functionality to:
 Leverages the "Open NX-OS with Nexus 9Kv" DEVNET Sandbox found at
 [http://devnetsandbox.cisco.com/]
 
+# Network Communication Diagram
+<img src='images/Step04-Network-Communication.png' width='400px'>
+
 # Containerization Steps
 Build the Docker image for this command:
 
