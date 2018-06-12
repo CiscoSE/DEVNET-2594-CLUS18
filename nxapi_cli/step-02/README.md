@@ -9,6 +9,9 @@ of Mac networking, VirtualBox networking, and Docker networking
 necessitate converting the script to a Docker image to be run
 as a container.
 
+# Network Communication Diagram
+<img src='images/Step02-Network-Communication.png' width='400px'>
+
 # Containerization Steps
 Build the Docker image for this command:
 
