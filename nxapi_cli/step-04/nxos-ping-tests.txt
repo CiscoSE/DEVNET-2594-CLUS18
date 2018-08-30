@@ -1,0 +1,8 @@
+! spine-1
+ping 192.168.12.2 source 192.168.0.1 count unlimited interval 1 packet-size 100
+! spine-2
+ping 192.168.22.2 source 192.168.0.2 count unlimited interval 1 packet-size 200
+! leaf-1
+ping 192.168.11.1 source 192.168.1.1 count unlimited interval 1 packet-size 300
+! leaf-2
+ping 192.168.22.1 source 192.168.1.2 count unlimited interval 1 packet-size 400
