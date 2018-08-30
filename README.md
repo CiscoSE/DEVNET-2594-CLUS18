@@ -30,3 +30,12 @@ file.
 Each directory has a README.md file with instructions on how to use
 the content in each directory.
 
+# Versions
+- Ansible : 2.5.4
+
+- Python : 3.6.5
+
+- NX-OS 9000v (local laptop) : 7.0(3)I7(1)
+
+- NX-OS 9000v (DEVNET Sandbox "Open NX-OS with Nexus 9Kv") : 7.0(3)I6(1)
+
