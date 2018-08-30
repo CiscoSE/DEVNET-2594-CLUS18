@@ -35,7 +35,7 @@ the content in each directory.
 
 - Python : 3.6.5
 
-- NX-OS 9000v (local laptop) : 7.0(3)I7(1)
+- NX-OS 9000v (local laptop) : 7.0(3)I7(3)
 
 - NX-OS 9000v (DEVNET Sandbox "Open NX-OS with Nexus 9Kv") : 7.0(3)I6(1)
 
