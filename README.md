@@ -31,7 +31,7 @@ Each directory has a README.md file with instructions on how to use
 the content in each directory.
 
 # Versions
-- Ansible : 2.5.4
+- Ansible : 2.5.5 (tested with 2.5.4)
 
 - Python : 3.6.5
 
